@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -74,7 +75,7 @@ class tamagochi {
         }
         virtual void bañar(){
             higiene+=5;
-            cout<<"Tu mascota "<<nombre<< " se siente más limpio" <<endl;
+            cout<<"Tu tamagochi "<<nombre<< " está más limpio" <<endl;
         }
 
         virtual void reaccionJuguete(){
@@ -93,7 +94,7 @@ class tamagochi {
             return "Este tamagochi no tiene especial :c";           
         }
         virtual void usarEspecial(jugador& jugadorOwner, int idx) {
-        cout << "No tiene especial para usar.\n"<<endl;
+        cout << "No tiene habilidad especial para usar.\n"<<endl;
     }
         
 };
@@ -300,7 +301,7 @@ public:
                 }
 
     void tocarMúsica(){
-        cout << "Tu tambor toca una canción genial :D" << endl;
+        cout << "Tu tambor toca una canción.p3 :D" << endl;
         std::thread hiloMusica(&tambor::tocarMelodia, this);
         hiloMusica.detach();  // Se ejecuta en paralelo sin bloquea
     }
@@ -333,7 +334,7 @@ class estrella:public tamagochi{
         //destructor
 
         void reaccionJuguete() override{
-                cout<<"Tu estrella destruye un planeta :U"<<endl;
+                cout<<"Tu estrella destruye un planeta :O"<<endl;
                 }
 
         void parpadeos(){
@@ -344,7 +345,7 @@ class estrella:public tamagochi{
         }
 
         string getEspecial() override{
-            return "Este tamagochi IMPLOSIONA :D";           
+            return "Este tamagochi PUEDE IMPLOSIONAR >:D";           
         }
 
         void usarEspecial(jugador& jugadorOwner, int idx) override;
@@ -402,7 +403,7 @@ public:
     comida(): item("Comida"){}
     void usarItem(tamagochi*t)override{
         t->setHambre(t->getHambre()+4);
-        cout<<"Tu mascota ya comió"<<endl;
+        cout<<"Tu mascota ya comió "<<endl;
     }
 };
 
@@ -436,7 +437,7 @@ void conejo::reproducirse(jugador& jugadorOwner){
             string nuevo_n;
         cout<<"Nombra a tu nuevo conejito ^^: ";
         cin>>nuevo_n;
-        cout<<"¡¡Tienes una nueva mascota llamada: "<<nuevo_n<<" y es un conejo!!:D"<<endl;
+        cout<<"Tienes un nuevo tamagochi llamado: "<<nuevo_n<<" y es un conejo!!:D"<<endl;
         jugadorOwner.adoptar(new conejo(nuevo_n));
         }
 void conejo::usarEspecial(jugador& jugadorOwner, int idx){
@@ -492,8 +493,8 @@ int main(){
         cout<<"8. Especial del tamagochi :)"<<endl;
         cout<<"9. Pasar el tiempo con tu tamagochi"<<endl;
         cout<<"10. Adoptar"<<endl;
-        cout<<"11. Abandonar"<<endl;
-        cout<<"12. Salir"<<endl;
+        cout<<"11. Abandonar :c"<<endl;
+        cout<<"12. Salir."<<endl;
         cout<<"Ingresa el número de la opción: ";
         leerEntero(opcion);
 
@@ -536,7 +537,7 @@ int main(){
                 cout<<i<<") ";
                 Jugador.tamagochis[i]->nombreTamagochi();
             }
-            cout<<"Ingresa el número de la mascota para jugar: ";
+            cout<<"Ingresa el número del tamagochi para jugar: ";
             leerEntero(idxT);
             while(true){
                 if(idxT == -1){
@@ -603,7 +604,7 @@ int main(){
             int mascota_item = -1;
             int item_usar = 0;
             if (Jugador.cantidad_comida==0 && Jugador.cantidad_juguetes==0 && Jugador.cantidad_jabones==0){
-                cout<<"No tienes items :c nuv"<<endl;
+                cout<<"No tienes items :c nub"<<endl;
                 continue;
             }
             cout<<"------------------- I N V E N T A R I O -------------------\n";
@@ -702,10 +703,10 @@ int main(){
                 inicio_tienda:;
                 cout<<" ------------ T I E N D A ------------"<<endl;
                 cout<<"Dinero Actual: $ "<<dinero<<endl;
-                cout<<"1) Comida $ 4"<<endl;
-                cout<<"2) Juguete a $5"<<endl;
-                cout<<"3) Jabón $3"<<endl;
-                cout<<"4) Salir"<<endl;
+                cout<<"1) Comida -> $ 4"<<endl;
+                cout<<"2) Juguete -> $5"<<endl;
+                cout<<"3) Jabón -> $3"<<endl;
+                cout<<"4) Salir. "<<endl;
                 leerEntero(item_escogido);
 
                 if(item_escogido==4){
@@ -765,7 +766,7 @@ int main(){
                 leerEntero(idxT);
                 }
             cout<<Jugador.tamagochis[idxT]->getEspecial()<<endl;
-            cout<<"Quieres usar el especial"<<endl;
+            cout<<"Quieres usar la habilidad especial del tamagochi?"<<endl;
             int usar_especial=0;
             cout<<"1) Sí"<<endl;
             cout<<"2) No"<<endl;
@@ -792,14 +793,14 @@ int main(){
 
         else if (opcion==10){
             int especie = -1;
-            std::string nombre;
+            string nombre;
 
             while (true) {
                 cout << "Selecciona la especie para adoptar:"<<endl;
                 cout << "1) Conejo"<<endl;
                 cout << "2) Estrella"<<endl;
                 cout << "3) Tambor"<<endl;
-                cout << "0) Cancelar y regresar al menú"<<endl;
+                cout << "0) Cancelar y regresar al menú "<<endl;
                 cout << "Elige una opción: ";
                 leerEntero(especie);
 
@@ -821,10 +822,10 @@ int main(){
 
             while (true) {
                 cout << "Ingresa el nombre para tu nuevo tamagochi (0 para cancelar): ";
-                std::getline(std::cin, nombre);
+                getline(cin, nombre);
 
                 if (nombre.empty()) {
-                    std::getline(std::cin, nombre);
+                    getline(cin, nombre);
                 }
 
                 if (nombre == "0") {
@@ -908,5 +909,4 @@ int main(){
     }
     return 0;
 }
-    return 0;
-}
+  
